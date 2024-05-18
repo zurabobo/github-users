@@ -9,9 +9,10 @@ const MainPage = ({ onBackBtn, onChange, value }) => {
  
 
   useEffect(() => {
-    const token = process.env.REACT_APP_GITHUB_TOKEN;
+
     // Fetch information about a default user when the component mounts
     const fetchDefaultUser = async () => {
+      const token = process.env.REACT_APP_GITHUB_TOKEN;
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -30,7 +31,7 @@ const MainPage = ({ onBackBtn, onChange, value }) => {
     };
 
     fetchDefaultUser();
-  }); // Include config as a dependency to avoid ESLint warnings
+  },[]); // Include config as a dependency to avoid ESLint warnings
 
   return (
     <>
