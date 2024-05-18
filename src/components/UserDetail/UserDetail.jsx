@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { formatDistanceToNow } from "date-fns";
@@ -80,6 +81,7 @@ const UserDetail = ({ user, onBackBtn }) => {
 
   useEffect(() => {
     fetchRepositories(currentPage);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.url, currentPage]);
 
   const handlePrevPage = () => {

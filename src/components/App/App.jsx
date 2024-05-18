@@ -61,6 +61,7 @@ const App = () => {
 
   useEffect(() => {
     handleSearch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   const handleUserClick = (user) => {

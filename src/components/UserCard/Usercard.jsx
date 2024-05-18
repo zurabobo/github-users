@@ -18,7 +18,6 @@ const UserCard = ({ user, onUserClick }) => {
   const [reposCount, setReposCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const token = process.env.REACT_APP_GITHUB_TOKEN;
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseOver = () => {
