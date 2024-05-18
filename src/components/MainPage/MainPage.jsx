@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UserDetail from "../UserDetail/UserDetail";
-import { Header, Link, Title, GithubLogo } from "../App/AppStyles";
-import UsersSearchForm from "../UsersSearchForm/UsersSearchForm";
 
 const MainPage = ({ onBackBtn, onChange, value }) => {
   const [user, setUser] = useState(null);

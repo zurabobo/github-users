@@ -15,9 +15,8 @@ import Pagination from "../Pagination/Pagination";
 import UsersList from "../UsersList/UsersList";
 import UsersSearchForm from "../UsersSearchForm/UsersSearchForm";
 import RepositorySortSelect from "../RepositorySortSelect/RepositorySortSelect";
-import Preloader from "../Preloader/Preloader";
 import MainPage from "../MainPage/MainPage";
-import { Route, Routes, useParams, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 const App = () => {
   const [query, setQuery] = useState("");
@@ -38,7 +37,6 @@ const App = () => {
   };
 
   const navigate = useNavigate();
-  const { user_login } = useParams();
 
   const handleSearch = async () => {
     if (!query.trim()) return;
