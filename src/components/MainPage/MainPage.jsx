@@ -6,6 +6,7 @@ import UsersSearchForm from "../UsersSearchForm/UsersSearchForm";
 
 const MainPage = ({ onBackBtn, onChange, value }) => {
   const [user, setUser] = useState(null);
+  const token = process.env.REACT_APP_GITHUB_TOKEN;
 
   const config = {
     headers: {
