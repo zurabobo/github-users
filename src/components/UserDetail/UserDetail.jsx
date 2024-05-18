@@ -38,6 +38,7 @@ const UserDetail = ({ user, onBackBtn }) => {
   const [location, setLocation] = useState(null);
   const [userName, setUserName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
   const [itemsPerPage, setItemsPerPage] = useState(20); // Choose the number of items per page
   const [totalRepositories, setTotalRepositories] = useState(0);
 
