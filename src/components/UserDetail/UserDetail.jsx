@@ -93,34 +93,6 @@ const UserDetail = ({ user, onBackBtn }) => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  // useEffect(() => {
-  //   const fetchRepositories = async () => {
-  //     try {
-  //       const response = await axios.get(user.repos_url);
-  //       setRepositories(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching repositories:', error);
-  //     }
-  //   };
-  //   fetchRepositories();
-  // }, [user]);
-
-  // useEffect(() => {
-  //   const fetchRepositories = async () => {
-  //     if (!user.repos_url) return;
-  //     try {
-  //       const response = await axios.get(user.repos_url);
-  //       const sortedRepos = response.data.sort(
-  //         (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
-  //       );
-  //       setRepositories(sortedRepos);
-  //     } catch (error) {
-  //       console.error("Error fetching repositories:", error);
-  //     }
-  //   };
-  //   fetchRepositories();
-  // }, [user]);
-
   const formatUpdatedAt = (date) => {
     return formatDistanceToNow(new Date(date), { addSuffix: true });
   };
@@ -229,19 +201,7 @@ const UserDetail = ({ user, onBackBtn }) => {
                 <AiOutlineLink style={AiOutlineLinkStyle} /> {workplace}
               </Link>
             )}
-            {/* <p>
-        Github URL:{" "}
-        <a href={html_url} target="_blank" rel="noopener noreferrer">
-          {html_url}
-        </a>
-      </p> */}
-            {/* <Paragraph>organizations_url: {workplace}</Paragraph> */}
-            {/* {twitterUsername && (
-              <Paragraph>
-                {" "}
-                <FaTwitter /> {twitterUsername}
-              </Paragraph>
-            )} */}
+
             <ListContainer followers_container="true">
               <ListItem info="true">
                 <Paragraph info="true">{followersCount}</Paragraph>

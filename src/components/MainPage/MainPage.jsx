@@ -6,21 +6,20 @@ const MainPage = () => {
   const [user, setUser] = useState(null);
 
   const token = process.env.REACT_APP_GITHUB_TOKEN;
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   useEffect(() => {
     const fetchDefaultUser = async () => {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
       try {
         const defaultUserLogin = "zurabobo";
         const res = await axios.get(
           `https://api.github.com/users/${defaultUserLogin}`,
           config
         );
-        console.log(config);
         setUser(res.data);
       } catch (error) {
         console.error("Error fetching default user:", error);
@@ -30,11 +29,7 @@ const MainPage = () => {
     fetchDefaultUser();
   });
 
-  return (
-    <>
-      {user && <UserDetail user={user} />}
-    </>
-  );
+  return <>{user && <UserDetail user={user} />}</>;
 };
 
 export default MainPage;
