@@ -4,11 +4,12 @@ import UserDetail from "../UserDetail/UserDetail";
 
 const MainPage = ({ onBackBtn, onChange, value }) => {
   const [user, setUser] = useState(null);
-  const token = process.env.REACT_APP_GITHUB_TOKEN;
+ 
 
  
 
   useEffect(() => {
+    const token = process.env.REACT_APP_GITHUB_TOKEN;
     // Fetch information about a default user when the component mounts
     const fetchDefaultUser = async () => {
       const config = {
