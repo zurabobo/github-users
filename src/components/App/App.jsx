@@ -21,11 +21,11 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 const App = () => {
   const [query, setQuery] = useState("");
   const [lastEnteredQuery, setLastEnteredQuery] = useState("");
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")) || []);
   const [sortBy, setSortBy] = useState("");
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalResults, setTotalResults] = useState(0);
+  const [selectedUser, setSelectedUser] = useState(JSON.parse(localStorage.getItem("selectedUser")) || null);
+  const [currentPage, setCurrentPage] = useState(parseInt(localStorage.getItem("currentPage"), 10) || 1);
+  const [totalResults, setTotalResults] = useState(parseInt(localStorage.getItem("totalResults"), 10) || 0);
   const ITEMS_PER_PAGE = 30;
 
   const token = process.env.REACT_APP_GITHUB_TOKEN;
@@ -63,6 +63,13 @@ const App = () => {
     handleSearch();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("selectedUser", JSON.stringify(selectedUser));
+    localStorage.setItem("currentPage", currentPage);
+    localStorage.setItem("totalResults", totalResults);
+  }, [users, selectedUser, currentPage, totalResults]);
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
@@ -117,8 +124,6 @@ const App = () => {
   };
 
   const handleGoBack = () => {
-    // Navigate back to the search results page with the search query
-    // navigate(`/users/`);
     navigate(-1);
   };
 
