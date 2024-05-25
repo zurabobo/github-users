@@ -5,7 +5,9 @@ import UserDetail from "../UserDetail/UserDetail";
 const MainPage = () => {
   const [user, setUser] = useState(null);
 
+  // const token = process.env.REACT_APP_GITHUB_TOKEN;
   const token = process.env.REACT_APP_GITHUB_TOKEN;
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
